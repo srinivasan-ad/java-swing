@@ -12,6 +12,10 @@ public class CreatePainting {
           //Rectangle
            g.setColor(Color.BLUE);
            g.fillRect(50, 50, 100, 60);
+
+           //Circle
+           g.setColor(Color.RED);
+           g.fillOval(200, 42, 80 , 80);
         }
        });
        frame.setVisible(true);
