@@ -9,10 +9,11 @@ public class CreatePainting {
         protected void paintComponent(Graphics g)
         {
            super.paintComponent(g);
-
+          //Rectangle
            g.setColor(Color.BLUE);
            g.fillRect(50, 50, 100, 60);
         }
        });
+       frame.setVisible(true);
     }
 }
