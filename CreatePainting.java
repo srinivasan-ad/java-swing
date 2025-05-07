@@ -16,6 +16,9 @@ public class CreatePainting {
            //Circle
            g.setColor(Color.RED);
            g.fillOval(200, 42, 80 , 80);
+
+           g.setColor(Color.BLACK);
+           g.drawString("Checking Out SWING" , 150 , 200);
         }
        });
        frame.setVisible(true);
