@@ -5,5 +5,14 @@ public class CreatePainting {
         JFrame frame = new JFrame("Simple Drawing");
         frame.setSize(400,300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       frame.add(new JPanel(){
+        protected void paintComponent(Graphics g)
+        {
+           super.paintComponent(g);
+
+           g.setColor(Color.BLUE);
+           g.fillRect(50, 50, 100, 60);
+        }
+       });
     }
 }
