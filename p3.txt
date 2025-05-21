@@ -1,0 +1,78 @@
+for gradle 
+
+
+mkdir HelloGradle
+cd HelloGradle
+gradle init --type java-application
+open the build file ->  nano build.gradle
+add this instead of main class add this 
+application {
+    mainClass = 'com.example.App'
+}
+add this to build.gradle in the last 
+task hello {
+    doLast {
+        println 'Hello, Gradle!'
+    }
+}
+
+
+change dependency in the same build file to this 
+dependencies {
+    implementation 'com.google.guava:guava:23.0'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+
+go to this file 
+HelloGradle/gradle/wrapper/gradle-wrapper.properties
+cd gradle/wrapper
+nano gradle-wrapper.properties
+ then search for this line :- distributionUrl=https\://services.gradle.org/distributions/gradle-4.4.1-bin.zip
+ change the gradle- version according to this website :-https://docs.gradle.org/current/userguide/compatibility.html
+
+
+run this 
+rm -rf ~/.gradle/wrapper/dists
+./gradlew --version
+./gradlew clean
+./gradlew build
+./gradlew hello
+
+
+for kotlin 
+
+ change the build.gradle file name to build.gradle.kts
+ open the newly named build file , remove the contents of the file and paste this :-
+ 
+plugins {
+    java
+    application
+}
+
+group = "com.example"
+version = "1.0"
+
+repositories {
+    mavenCentral() // jcenter is deprecated
+}
+
+dependencies {
+    implementation("com.google.guava:guava:23.0")
+    testImplementation("junit:junit:4.13.2")
+}
+
+application {
+    mainClass.set("com.example.App")
+}
+
+tasks.register("hello") {
+    doLast {
+        println("Hello, Gradle with Kotlin DSL!")
+    }
+}
+
+save the file and run these commands :-
+
+./gradlew build
+./gradlew hello

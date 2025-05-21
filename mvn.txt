@@ -1,0 +1,78 @@
+maven 
+
+sudo apt update
+sudo apt install maven
+sudo apt install maven --fix-missing
+sudo apt install gradle 
+mvn --version
+gradle --version 
+if java is not installed 
+sudo apt install openjdk-21-jdk
+
+
+mvn archetype:generate -DgroupId=com.example -DartifactId=MyMavenApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+cd MyMavenApp
+mvn compile
+ add this in the pom.xml before the project tag closes 
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.10.1</version>
+      <configuration>
+        <source>17</source>  <!-- Or 8, 11, 21 depending on what you have installed -->
+        <target>17</target>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+mvn compile
+
+mvn test
+
+
+for fourth program
+
+run mvn package in maven project 
+then run java -cp target/MyMavenApp-1.0-SNAPSHOT.jar com.example.App
+i.e where the project was built 
+
+then 
+mkdir HelloMavenGradle
+cd HelloMavenGradle
+
+# 2. Initialize a Gradle Java application project
+gradle init --type java-application
+
+# 3. Create correct package directory
+mkdir -p src/main/java/com/example
+mv src/main/java/App.java src/main/java/com/
+
+./gradlew build
+
+# 9. Run the application using Gradle
+./gradlew run
+Make sure the first line is:App.java
+
+package com.example;
+
+build file
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:23.0'
+    testCompile 'junit:junit:4.12'
+}
+
+// Use the old property to specify the main class
+mainClassName = 'com.example.App'
+gradle build
+gradle run
